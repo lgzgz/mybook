@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	 <style type="text/css">
+    #box {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: skyblue;
+        position: absolute;
+        left: 0px;
+        top: 100px;
+    }
+
+    #boxr {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        background: red;
+        position: absolute;
+        right: 0px;
+        top: 100px;
+
+    }
+    </style>
+</head>
+<body>
+	<button id="btn">开始</button>
+    <div id="box"></div>
+    <div id="boxr"></div>
+    <script type="text/javascript">
+    	//获取元素
+    	var wleft=document.getElementById('box');
+    	var wrigth=document.getElementById('boxr');
+    	//获取页面宽度
+    	var w=document.body.offsetWidth;
+    	//速度
+    	var index=2;
+    	var tiem;
+    	var tien;
+    	//添加点击事件
+    	document.getElementById('btn').onclick=function(){
+    		//启动定时器
+          tiem=setInterval(show,10);
+          tien=setInterval(show1,10);
+    	}
+    	//小球向右移动
+    	function show(){
+    		var l=wleft.offsetLeft;
+    		var p=wleft.offsetWidth;
+    		
+    		if(l>=w/2-p){
+    			//清除
+    			clearInterval(tiem);
+
+    		}else{
+    			//向右移动
+              wleft.style.left=l+index+'px';
+    		}
+    	}
+    	//小球向左移动
+    	function show1(){
+    		//小球的left值
+    		var r=wrigth.offsetLeft;
+    		if(r<=w/2){
+    			//清除
+    			clearInterval(tien);
+
+    		}else{
+    			//向左移动
+              wrigth.style.left=r-index+'px';
+    		}
+    	}
+
+    </script>
+</body>
+</html>
